@@ -15,7 +15,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/wilderdb', {
 .catch(() => console.error('db connexion failed'));
 
 app.use(bodyParser.json())
-app.use('/api/wilder', WilderRoutes)
+app.use('/api/wilder', WilderRoutes )
 
 // Start server
 app.listen(4000, () => {

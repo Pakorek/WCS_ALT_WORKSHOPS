@@ -2,7 +2,6 @@ const WilderModel = require("../models/Wilder.js")
 
 exports.create = (req, res) => {
     WilderModel.init().then( () => {
-        console.log(req.body)
             const newWilder = new WilderModel(req.body)
             newWilder.save()
                 .then(() => res.status(200).json({ message: "Wilder créé !"}))
