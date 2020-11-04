@@ -17,6 +17,17 @@ mongoose.connect('mongodb://127.0.0.1:27017/wilderdb', {
 app.use(bodyParser.json())
 app.use('/api/wilder', WilderRoutes )
 
+/*
+app.use('*', (req, res) => {
+    res.send('what???', 404);
+});
+*/
+app.use(function (err, req, res, next) {
+    console.error(err.stack)
+    res.status(500).send('Something broke!')
+})
+
+
 // Start server
 app.listen(4000, () => {
     console.log('Server start on port 4000')
