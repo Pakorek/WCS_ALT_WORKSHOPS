@@ -1,11 +1,20 @@
+import { Request, Response } from 'express'
+
 const express = require('express')
 const router = express.Router()
 const WildCtrl = require('../controllers/wilders')
 
-function handleErrors(callback) {
-    return (req, res, next) => {
-        callback(req, res, next).catch(next)
+const handleErrors = (controller: (req: Request, res: Response) => Promise<void>) => {
+  return async (req: Request, res: Response) => {
+    try {
+      await controller(req, res)
+    } catch ({ code, message, status }) {
+      res.status(status || 500).json({
+        code,
+        message
+      })
     }
+  }
 }
 
 router.post('/create', handleErrors(WildCtrl.create))

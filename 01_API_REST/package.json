@@ -2,12 +2,12 @@
   "name": "untitled1",
   "version": "1.0.0",
   "description": "",
-  "main": "server.ts",
+  "main": "src/server.ts",
   "scripts": {
     "start": "npm run dev",
     "build": "tsc",
-    "lint": "eslint . & echo 'lint complete'",
-    "lint-fix": "eslint --fix . ",
+    "lint": "eslint 'src/**' ",
+    "lint-fix": "eslint --fix 'src/**'",
     "dev": "ts-node-dev --transpile-only --respawn ./src/server.ts",
     "prod": "tsc && node ./build/src/server.js",
     "debug": "tsc && node --inspect ./build/src/server.js"
@@ -26,26 +26,17 @@
     "prop-styles": "^2.0.0"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.6.1",
-    "@typescript-eslint/parser": "^4.6.1",
+    "@typescript-eslint/eslint-plugin": "^4.7.0",
+    "@typescript-eslint/parser": "^4.7.0",
     "eslint": "^7.13.0",
-    "eslint-config-airbnb-typescript": "^12.0.0",
-    "eslint-config-prettier": "^6.15.0",
+    "eslint-config-standard": "^16.0.1",
     "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jest": "^24.1.0",
-    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.21.5",
     "prettier": "^2.1.2",
     "ts-node": "^9.0.0",
     "ts-node-dev": "^1.0.0",
     "typescript": "^4.0.5"
-  },
-  "eslintConfig": {
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-      "ecmaVersion": 2018,
-      "sourceType": "module",
-      "project": "./tsconfig.json",
-      "tsconfigRootDir": "./"
-    }
   }
 }
