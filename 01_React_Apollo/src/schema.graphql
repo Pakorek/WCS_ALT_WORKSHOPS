@@ -1,0 +1,20 @@
+type VideoLink {
+    video_link: String
+}
+
+type Rocket {
+    rocket_name: String
+}
+
+type Launch {
+    details: String
+    launch_date_utc: String
+    launch_success: Boolean
+    links: VideoLink
+    rocket: Rocket
+}
+
+type Query {
+    hello: String
+    launches: [Launch!]!
+}

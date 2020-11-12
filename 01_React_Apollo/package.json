@@ -1,0 +1,16 @@
+{
+  "name": "01_react_apollo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "graphpack": "^1.0.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+      "dev": "graphpack",
+      "build": "graphpack build"
+  },
+  "author": "",
+  "license": "ISC"
+}
