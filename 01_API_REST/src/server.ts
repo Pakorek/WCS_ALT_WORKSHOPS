@@ -20,9 +20,11 @@ app.use(bodyParser.json())
 app.use('/api/wilder', WilderRoutes)
 
 // Last route : errorHandler
-app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-  console.error(err.stack)
-  res.status(500).send('Something broke!')
+app.use((error:any, req:Request, res:Response, next:NextFunction) => {
+  if (error.name === 'MongoError' && error.code === 11000) {
+    res.status(400)
+    res.json({ success: false, message: 'The name is already used' })
+  }
 })
 
 // Start server
@@ -30,4 +32,4 @@ app.listen(4000, () => {
   console.log('Server start on port 4000')
 })
 
-// console.log("Hello madafakaa");
+// console.log("Hello madafaka");

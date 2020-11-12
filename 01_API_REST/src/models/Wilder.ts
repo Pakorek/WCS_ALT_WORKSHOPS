@@ -7,4 +7,4 @@ const WilderSchema = new Schema({
   skills: [{ title: String, vote: Number }]
 })
 
-module.exports = mongoose.model('wilder', WilderSchema)
+export default mongoose.model('wilder', WilderSchema)

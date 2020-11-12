@@ -1,5 +1,5 @@
 import { Response, Request } from 'express'
-const WilderModel = require('../models/Wilder.js')
+import WilderModel from '../models/Wilder';
 
 exports.create = async (req: Request, res: Response) => {
   await WilderModel.init()
